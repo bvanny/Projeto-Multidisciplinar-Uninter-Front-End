@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidaPlus - Dashboard</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/modules.css">
+</head>
+<body class="dashboard-body">
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <aside class="sidebar" id="sidebar">
+        <h2>Vida<span>Plus</span></h2>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html" class="active">Painel Principal</a></li>
+                <li><a href="schedule.html">Agenda Médica</a></li>
+                <li><a href="patients.html">Pacientes</a></li>
+                <li><a href="records.html">Prontuários</a></li>
+                <li><a href="telemedicine.html">Telemedicina</a></li>
+                <li><a href="settings.html">Configurações</a></li>
+                <li><a href="admin.html">Administração</a></li>
+            </ul>
+        </nav>
+        <div class="user-info">
+            <p>Olá, <strong id="userName">...</strong></p>
+            <button id="btnLogout" class="btn-logout">Sair</button>
+        </div>
+    </aside>
+
+    <main class="content">
+        <header class="content-header">
+            <div>
+                <h1>Painel de Controle</h1>
+                <p class="text-muted" id="currentDate">Sábado, 28 de Março de 2026</p>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3>Atendimentos</h3>
+                    <p id="totalToday">0</p>
+                </div>
+                <div class="stat-icon">📋</div>
+            </div>
+            <div class="stat-card stat-waiting">
+                <div class="stat-info">
+                    <h3>Na Espera</h3>
+                    <p id="totalWaiting">0</p>
+                </div>
+                <div class="stat-icon">⏳</div>
+            </div>
+            <div class="stat-card stat-finished">
+                <div class="stat-info">
+                    <h3>Concluídos</h3>
+                    <p id="totalFinished">0</p>
+                </div>
+                <div class="stat-icon">✅</div>
+            </div>
+        </div>
+
+        <div class="grid-2 gap-20">
+            <div class="card emergency-card" id="emergencyPanel">
+                <h3 class="text-danger flex items-center gap-10">
+                    <span>🚨</span> EMERGÊNCIA
+                </h3>
+                <p class="text-muted mb-1">Acione para casos de risco imediato.</p>
+                
+                <div id="activeAlertArea" class="hidden alert-box">
+                    <strong>ALERTA ATIVO:</strong>
+                    <p id="alertText"></p>
+                </div>
+
+                <textarea id="emergencyNote" class="modal-textarea mb-1" placeholder="Descreva a intercorrência..."></textarea>
+                
+                <button id="btnTriggerEmergency" class="btn-emergency">Acionar Código Vermelho</button>
+                <button id="btnClearEmergency" class="hidden btn-link">Encerrar Alerta</button>
+            </div>
+
+            <div class="card">
+                <h3 class="flex items-center gap-10">
+                    <span>📅</span> Próxima Consulta
+                </h3>
+                <hr class="divider">
+                <div id="nextPatientCard" class="appointment-preview flex-center flex-column">
+                    <p class="text-muted">Carregando informações...</p>
+                </div>
+                <button onclick="window.location.href='schedule.html'" class="btn-primary mt-2">Acessar Agenda Completa</button>
+            </div>
+        </div>
+
+        <div class="card mt-2">
+            <h3 class="flex items-center gap-10">
+                <span>🛡️</span> Auditoria de Acessos (LGPD)
+            </h3>
+            <hr class="divider">
+            <div id="recentLogs" style="max-height: 250px; overflow-y: auto;">
+                <p style="padding:15px; color:#999;">Carregando logs...</p>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/dashboard.js"></script>
+    <script type="module" src="js/toggle.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidaPlus - Gestão de Pacientes</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/modules.css">
+</head>
+<body class="dashboard-body">
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <aside class="sidebar" id="sidebar">
+        <h2>Vida<span>Plus</span></h2>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Painel Principal</a></li>
+                <li><a href="schedule.html">Agenda Médica</a></li>
+                <li><a href="patients.html" class="active">Pacientes</a></li>
+                <li><a href="records.html">Prontuários</a></li>
+                <li><a href="telemedicine.html">Telemedicina</a></li>
+                <li><a href="settings.html">Configurações</a></li>
+                <li><a href="admin.html">Administração</a></li>
+            </ul>
+        </nav>
+        <div class="user-info">
+            <p>Olá, <strong id="userName">...</strong></p>
+            <button id="btnLogout" class="btn-logout">Sair</button>
+        </div>
+    </aside>
+
+    <main class="content">
+        <header class="content-header">
+            <div>
+                <h1>Gestão de Pacientes</h1>
+                <p class="text-muted">Histórico completo, altas e novos agendamentos.</p>
+            </div>
+            <div class="flex gap-10">
+                <input type="text" id="searchPatient" class="search-input" placeholder="Buscar por nome ou CPF..." style="width: 250px;">
+                <button id="btnOpenModal" class="btn-primary" style="width:auto; padding:0 20px">+ Novo Paciente</button>
+            </div>
+        </header>
+
+        <section class="card p-0" style="overflow:hidden">
+            <table>
+                <thead>
+                    <tr style="background:#f8f9fa; border-bottom:2px solid #eee;">
+                        <th style="padding:15px">Paciente</th>
+                        <th>CPF</th>
+                        <th>Status Atual</th>
+                        <th>Último Horário</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="allPatientsList">
+                    </tbody>
+            </table>
+        </section>
+    </main>
+
+    <div id="modalPatient" class="modal-overlay hidden">
+        <div class="modal-box">
+            <h3>Cadastrar para Consulta</h3>
+            <hr class="divider">
+            <form id="formNewPatient" class="mt-1">
+                <div class="input-field">
+                    <label>Nome Completo</label>
+                    <input type="text" id="regName" required>
+                </div>
+                <div class="grid-2 gap-10">
+                    <div class="input-field">
+                        <label>CPF</label>
+                        <input type="text" id="regCpf" required placeholder="000.000.000-00">
+                    </div>
+                    <div class="input-field">
+                        <label>Horário da Consulta</label>
+                        <input type="time" id="regTime" required>
+                    </div>
+                </div>
+                <div class="input-field">
+                    <label>Alergias / Observações</label>
+                    <textarea id="regAllergy" class="modal-textarea" placeholder="Nenhuma"></textarea>
+                </div>
+                <div class="flex gap-10 mt-2">
+                    <button type="submit" class="btn-primary">Confirmar e Agendar</button>
+                    <button type="button" id="closeModal" class="btn-logout" style="border-color:#ccc; color:#666">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/patients-list-handler.js"></script>
+    <script type="module" src="js/toggle.js"></script>
+</body>
+</html>

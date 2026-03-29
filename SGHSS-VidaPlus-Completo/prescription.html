@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidaPlus - Emissão de Receita</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/modules.css">
+    <style>
+        .prescription-container { max-width: 800px; margin: 20px auto; }
+        .prescription-header { border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-bottom: 20px; }
+        .med-item { background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 5px solid #9b59b6; margin-bottom: 10px; }
+    </style>
+</head>
+<body class="dashboard-body">
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <aside class="sidebar" id="sidebar">
+        <h2>Vida<span>Plus</span></h2>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Painel Principal</a></li>
+                <li><a class="active">Receita</a></li>
+            </ul>
+        </nav>
+        <div class="user-info">
+            <p>Dr(a). <strong id="userName">...</strong></p>
+            <button id="btnLogout" class="btn-logout">Sair</button>
+        </div>
+    </aside>
+
+    <main class="content">
+        <div class="prescription-container">
+            <header class="prescription-header flex justify-between align-center">
+                <div>
+                    <h1>Receita Digital</h1>
+                    <p class="text-muted">Paciente: <span id="patientTargetName" style="color:#2c3e50; font-weight:bold;">Carregando...</span></p>
+                </div>
+                <div style="text-align: right;">
+                    <span id="currentDate" class="badge-info"></span>
+                </div>
+            </header>
+
+            <section class="card">
+                <form id="formPrescription">
+                    <div class="input-field">
+                        <label>Medicamentos e Dosagem</label>
+                        <textarea id="medicationList" class="modal-textarea" style="height: 150px;" 
+                            placeholder="Ex: Amoxicilina 500mg - 1 comprimido de 8 em 8 horas por 7 dias." required></textarea>
+                    </div>
+
+                    <div class="input-field mt-1">
+                        <label>Orientações Adicionais (Dieta, repouso, etc.)</label>
+                        <textarea id="usageInstructions" class="modal-textarea" style="height: 100px;" 
+                            placeholder="Ex: Ingerir bastante líquido e evitar exposição ao sol."></textarea>
+                    </div>
+
+                    <div class="flex gap-10 mt-2">
+                        <button type="submit" class="btn-primary" style="background:#9b59b6">Emitir e Assinar Digitalmente</button>
+                        <button type="button" onclick="window.history.back()" class="btn-logout" style="border-color:#ccc; color:#666">Cancelar</button>
+                    </div>
+                </form>
+            </section>
+
+            <div id="recentPrescriptions" class="mt-2">
+                <h3 class="text-muted" style="font-size: 0.9rem; margin-bottom: 10px;">Últimas Prescrições deste Paciente:</h3>
+                <div id="prescriptionsList"></div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/prescription-handler.js"></script>
+    <script type="module" src="js/toggle.js"></script>
+</body>
+</html>

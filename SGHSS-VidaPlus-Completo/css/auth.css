@@ -1,0 +1,60 @@
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f4f7f9 0%, #e9ecef 100%);
+    padding: 1rem;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-title {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.toggle-text {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.mfa-container {
+    background: #e8f4fd;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border: 1px dashed var(--secondary);
+    text-align: center;
+}
+
+.mfa-code {
+    font-size: 1.2rem;
+    color: var(--primary);
+    letter-spacing: 2px;
+    display: block;
+}
+
+.btn-toggle-view {
+    position: absolute;
+    right: 10px;
+    top: 38px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .login-card {
+        max-width: 100%;
+    }
+    
+    .auth-title h1 {
+        font-size: 1.5rem;
+    }
+}

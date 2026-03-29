@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidaPlus - Telemedicina</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/modules.css">
+</head>
+<body class="dashboard-body">
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <aside class="sidebar" id="sidebar">
+        <h2>Vida<span>Plus</span></h2>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Painel Principal</a></li>
+                <li><a href="schedule.html">Agenda Médica</a></li>
+                <li><a href="patients.html">Pacientes</a></li>
+                <li><a href="records.html">Prontuários</a></li>
+                <li><a href="telemedicine.html" class="active">Telemedicina</a></li>
+                <li><a href="settings.html">Configurações</a></li>
+                <li><a href="admin.html">Administração</a></li>
+            </ul>
+        </nav>
+        <div class="user-info">
+            <p>Olá, <strong id="userName">...</strong></p>
+            <button id="btnLogout" class="btn-logout">Sair</button>
+        </div>
+    </aside>
+
+    <main class="content">
+        <header class="content-header">
+            <div>
+                <h1>Atendimento Remoto</h1>
+                <p class="text-muted">Sessão de vídeo criptografada</p>
+            </div>
+            <button id="btnEndCall" class="btn-logout w-auto" style="padding: 5px 15px; margin: 0;">Encerrar Chamada</button>
+        </header>
+
+        <div class="grid-telemedicine">
+            <div class="flex-column gap-20">
+                <div class="video-call-main flex-center">
+                    <div class="video-call-overlay">
+                        <div class="text-center mb-1">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width="80">
+                        </div>
+                        <h2 id="patientName">Nenhum paciente em chamada</h2>
+                        <p id="patientAllergy" class="text-danger font-bold mt-1"></p>
+                    </div>
+                    <div class="self-video-preview"></div>
+                </div>
+
+                <div class="card">
+                    <h3>Notas da Consulta</h3>
+                    <div class="mt-2">
+                        <button id="btnSaveTele" class="btn-primary">
+                            + Registrar Evolução / Prescrição
+                        </button>
+                        <p class="text-muted text-center mt-1">
+                            As notas serão anexadas ao prontuário.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card flex-column">
+                <h3>Histórico do Paciente</h3>
+                <hr class="divider">
+                <div id="teleTimeline" class="patient-history-scroll text-center">
+                    <p class="text-muted mt-2">Aguardando início...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="editRecordModal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <span id="closeModalX" class="modal-close-x">&times;</span>
+            <h3 class="text-primary mb-2">Novo Registro Clínico</h3>
+            <div class="input-field">
+                <label>Tipo de Anotação</label>
+                <select id="recordType">
+                    <option value="Evolução">Evolução de Rotina</option>
+                    <option value="Medicamento">Prescrição de Medicamento</option>
+                    <option value="Exame">Solicitação de Exames</option>
+                    <option value="Atestado">Atestado Médico</option>
+                </select>
+            </div>
+            <div class="input-field">
+                <label>Descrição do Atendimento</label>
+                <textarea class="modal-textarea" placeholder="Descreva os detalhes..."></textarea>
+            </div>
+            <button id="btnSaveRecord" class="btn-primary mt-1">
+                Confirmar e Salvar no Histórico
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="js/telemedicine.js"></script>
+    <script type="module" src="js/toggle.js"></script>
+</body>
+</html>

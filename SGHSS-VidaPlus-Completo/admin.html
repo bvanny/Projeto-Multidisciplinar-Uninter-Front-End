@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidaPlus - Administração</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/modules.css">
+</head>
+<body class="dashboard-body">
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <aside class="sidebar" id="sidebar">
+        <h2>Vida<span>Plus</span></h2>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Painel Principal</a></li>
+                <li><a href="schedule.html">Agenda Médica</a></li>
+                <li><a href="patients.html">Pacientes</a></li>
+                <li><a href="records.html">Prontuários</a></li>
+                <li><a href="telemedicine.html">Telemedicina</a></li>
+                <li><a href="settings.html">Configurações</a></li>
+                <li><a href="admin.html" class="active">Administração</a></li>
+            </ul>
+        </nav>
+        <div class="user-info">
+            <p>Olá, <strong id="userName">...</strong></p>
+            <button id="btnLogout" class="btn-logout">Sair</button>
+        </div>
+    </aside>
+
+    <main class="content">
+        <header class="content-header">
+            <h1>Gestão Administrativa</h1>
+            <p class="text-muted">Controle de recursos e infraestrutura hospitalar.</p>
+        </header>
+
+        <div class="grid-2 gap-20">
+            <div class="card">
+                <h3>Ocupação de Leitos</h3>
+                <hr class="divider">
+                <div style="display:flex; justify-content:space-around; text-align:center; padding:20px 0;">
+                    <div>
+                        <h2 id="occupiedBeds" style="color:var(--primary); font-size:2.5rem;">0</h2>
+                        <p class="text-muted">Ocupados</p>
+                    </div>
+                    <div style="border-left:1px solid #eee;"></div>
+                    <div>
+                        <h2 id="availableBeds" style="color:#27ae60; font-size:2.5rem;">0</h2>
+                        <p class="text-muted">Disponíveis</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Controle de Suprimentos (Farmácia/Almoxarifado)</h3>
+                <hr class="divider">
+                <table style="width:100%; border-collapse:collapse; margin-top:10px;">
+                    <thead>
+                        <tr style="text-align:left; border-bottom:2px solid #eee;">
+                            <th style="padding:10px;">Insumo</th>
+                            <th>Estoque</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="supplyTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mt-2">
+            <h3>Relatório Financeiro Simplificado</h3>
+            <hr class="divider">
+            <div style="padding:20px; background:#f8f9fa; border-radius:8px; display:flex; justify-content:space-between;">
+                <span>Faturamento Mensal Estimado:</span>
+                <strong style="color:#27ae60;">R$ 142.500,00</strong>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/admin-handler.js"></script>
+    <script type="module" src="js/toggle.js"></script>
+</body>
+</html>

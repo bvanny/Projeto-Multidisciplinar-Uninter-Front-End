@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidaPlus - Prontuários</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/modules.css">
+    
+</head>
+<body class="dashboard-body">
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <aside class="sidebar" id="sidebar">
+        <h2>Vida<span>Plus</span></h2>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Painel Principal</a></li>
+                <li><a href="schedule.html">Agenda Médica</a></li>
+                <li><a href="patients.html">Pacientes</a></li>
+                <li><a href="records.html" class="active">Prontuários</a></li>
+                <li><a href="telemedicine.html">Telemedicina</a></li>
+                <li><a href="settings.html">Configurações</a></li>
+                <li><a href="admin.html">Administração</a></li>
+            </ul>
+        </nav>
+        <div class="user-info">
+            <p>Olá, <strong id="userName">...</strong></p>
+            <button id="btnLogout" class="btn-logout">Sair</button>
+        </div>
+    </aside>
+
+    <main class="content">
+        <header class="content-header">
+            <h1>Prontuários Eletrônicos</h1>
+            <input type="text" id="searchPatient" class="search-input" placeholder="Buscar paciente por nome ou CPF...">
+        </header>
+
+        <div class="records-grid">
+            <section class="card patient-list-container">
+                <div class="patient-list-header">Pacientes Recentes</div>
+                <div id="patientList" class="patient-list-scroll"></div>
+            </section>
+
+            <section id="patientDetails" class="card empty-state-container flex-center">
+                <p>Selecione um paciente para visualizar o histórico completo.</p>
+            </section>
+        </div>
+    </main>
+
+    <div id="editRecordModal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <span id="closeModalX" class="modal-close-x">&times;</span>
+            
+            <h3 class="text-primary mb-2">Novo Registro Clínico</h3>
+            
+            <div class="input-field">
+                <label>Tipo de Anotação</label>
+                <select id="recordType">
+                    <option value="Evolução">Evolução de Rotina</option>
+                    <option value="Medicamento">Prescrição de Medicamento</option>
+                    <option value="Exame">Solicitação de Exames</option>
+                    <option value="Atestado">Atestado Médico</option>
+                </select>
+            </div>
+
+            <div class="input-field">
+                <label>Descrição do Atendimento</label>
+                <textarea class="modal-textarea" placeholder="Descreva os detalhes observados, prescrições ou orientações..."></textarea>
+            </div>
+            
+            <button id="btnSaveRecord" class="btn-primary mt-1" style="padding:15px">
+                Confirmar e Salvar no Histórico
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="js/records.js"></script>
+    <script type="module" src="js/toggle.js"></script>
+</body>
+</html>

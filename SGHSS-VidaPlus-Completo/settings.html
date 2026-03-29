@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidaPlus - Configurações</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/modules.css">
+</head>
+<body class="dashboard-body">
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <aside class="sidebar" id="sidebar">
+        <h2>Vida<span>Plus</span></h2>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Painel Principal</a></li>
+                <li><a href="schedule.html">Agenda Médica</a></li>
+                <li><a href="patients.html">Pacientes</a></li>
+                <li><a href="records.html">Prontuários</a></li>
+                <li><a href="telemedicine.html">Telemedicina</a></li>
+                <li><a href="settings.html" class="active">Configurações</a></li>
+                <li><a href="admin.html">Administração</a></li>
+            </ul>
+        </nav>
+        <div class="user-info">
+            <p>Olá, <strong id="userName">...</strong></p>
+            <button id="btnLogout" class="btn-logout">Sair</button>
+        </div>
+    </aside>
+
+    <main class="content">
+        <header class="content-header">
+            <h1>Configurações e Perfil</h1>
+        </header>
+
+        <div class="grid-2 mb-2">
+            <section class="card">
+                <h3>Dados do Profissional</h3>
+                <p class="text-muted mb-2">Dados registrados no sistema (Leitura).</p>
+                
+                <form id="settingsForm">
+                    <div class="grid-2 mb-1">
+                        <div class="input-field">
+                            <label>Nome Completo</label>
+                            <input type="text" id="setUserName" readonly>
+                        </div>
+                        <div class="input-field">
+                            <label>CRM / Registro</label>
+                            <input type="text" id="setUserCRM" readonly>
+                        </div>
+                    </div>
+
+                    <div class="input-field">
+                        <label>E-mail Corporativo</label>
+                        <input type="email" id="setUserEmail" readonly>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Especialidade Principal</label>
+                        <input type="text" id="setUserSpec" readonly>
+                    </div>
+                </form>
+            </section>
+
+            <section class="card border-highlight">
+                <h3>Suporte ao Profissional</h3>
+                <p class="text-muted mb-2">Para alteração de dados ou problemas técnicos, acione o RH.</p>
+                
+                <div class="mfa-container mt-1">
+                    <small>Ramal Interno:</small>
+                    <strong class="mfa-code">4002 / 4005</strong>
+                </div>
+
+                <button id="btnOpenSupport" class="btn-primary mt-2" style="background:var(--secondary)">Abrir Chamado no RH</button>
+            </section>
+        </div>
+    </main>
+
+    <div id="supportModal" class="modal-overlay hidden flex-center">
+        <div class="card modal-box text-center">
+            <div style="font-size:2rem; margin-bottom:10px">📩</div>
+            <h3 class="text-primary">Solicitação Enviada!</h3>
+            <hr class="divider">
+            <p class="text-muted mb-2">Sua solicitação foi enviada ao RH. Em breve, você receberá um retorno via e-mail corporativo.</p>
+            <button id="btnCloseModal" class="btn-primary">Entendido</button>
+        </div>
+    </div>
+
+    <script type="module" src="js/settings.js"></script>
+    <script type="module" src="js/toggle.js"></script>
+</body>
+</html>
